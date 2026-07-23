@@ -8,8 +8,7 @@
     </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!--<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> -->
-	<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
 	:root {
 		--navy: #0d335c;
@@ -63,6 +62,8 @@
 		justify-content: flex-end;
 		
 		padding-bottom: clamp(24px, 5vh, 48px);
+		padding-left: 0;
+		padding-right: 0;
 		color: white;
 		text-align: center;
 		text-shadow: 0 3px 18px rgba(0, 0, 0, .24);
@@ -86,19 +87,14 @@
 
 	h1 {
 		margin-top: 14px;
-		font-size: clamp(64px, 15vw, 115px);
+		/* Increased font size for desktop */
+		font-size: clamp(72px, 18vw, 140px);
 		font-weight: 700;
 		line-height: 1.05;
 		text-transform: capitalize;
 		white-space: nowrap;
-		background: linear-gradient(135deg, #ffe082 0%, #fffdd0 25%, #d6aa25 50%, #fff3b0 75%, #caa123 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		color: transparent;
-
-		/* Glow and sharp shadow behind the transparent text */
-		filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.9)) drop-shadow(0px 0px 10px rgba(214, 170, 37, 0.6));
+		color: #ffffff;
+		text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85);
 	}
 
 	.moustache {
@@ -295,7 +291,7 @@
 
 	.photos figure {
 		margin: 0;
-		aspect-ratio: 1; /* Changed from 1.55 to 1 (Square) */
+		aspect-ratio: 1; /* Square */
 		border-radius: 8px;
 		overflow: hidden;
 		scroll-snap-align: start;
@@ -311,6 +307,7 @@
 		justify-content: center;
 		background: #f4f6f8;
 	}
+
 	.gallery-button {
 		width: 44px;
 		height: 44px;
@@ -583,23 +580,26 @@
 	}
 
 	@media (max-width: 520px) {
-		
 		h1 .ampersand {
-			font-size: 0.7em; /* Makes the '&' slightly smaller for a balanced look */
+			font-size: 0.7em;
 			margin: 4px 0;
 		}
-			.hero {
+
+		.hero {
 			min-height: 590px;
 		}
 
 		.hero-overlay {
-			padding-top: 34px;
+			padding-top: 0;
+			padding-left: 0;
+			padding-right: 0;
 		}
 
 		h1 {
-			margin-top: 20px;
-			font-size: clamp(38px, 8vw, 64px); /* Slightly scales down font on smaller phones to fit on one line cleanly */
-        	white-space: nowrap; /* Prevents wrapping onto a second line */
+			margin-top: 14px;
+			/* Increased font size for mobile screens */
+			font-size: clamp(58px, 14vw, 92px);
+			white-space: nowrap;
 		}
 
 		.countdown div {
@@ -620,12 +620,14 @@
 			flex-direction: column;
 		}
 	}
+
 	.photos figure img{
 		width:100%;
 		height:100%;
 		object-fit:contain;
 		display:block;
 	}
+
 	#guestCount {
 		text-align: center;
 	}
@@ -684,8 +686,6 @@
 		from { transform: scale(0.8); opacity: 0; }
 		to { transform: scale(1); opacity: 1; }
 	}
-
-
 	</style>
   </head>
   <body>
@@ -706,10 +706,6 @@
         </div>
       </section>
       <section class="countdown-band">
-        <!--<div class="floral floral-left" aria-hidden="true">
-        </div>
-        <div class="floral floral-right" aria-hidden="true">
-        </div>-->
         <h2>
           Countdown to Our Big Day
         </h2>
@@ -833,10 +829,6 @@
         </div>
       </section>
       <section class="rsvp" id="rsvp">
-        <!--<div class="floral floral-left" aria-hidden="true">
-        </div>
-        <div class="floral floral-right" aria-hidden="true">
-        </div> -->
         <h2>
           Join with us...
         </h2>
@@ -845,7 +837,7 @@
             <span>
               Your Name
             </span>
-            <input name="guestName" type="text" placeholder="Enter your name" pattern="[A-Za-z\s.]+" title="Please enter valid name"required>
+            <input name="guestName" type="text" placeholder="Enter your name" pattern="[A-Za-z\s.]+" title="Please enter valid name" required>
           </label>
           <fieldset>
             <legend>
@@ -923,16 +915,8 @@
       <p>
         ♥ Can't wait to celebrate with you! ♥
       </p>
-         
     </footer>
-	<!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <span class="close-btn" onclick="closeLightbox()">&times;</span>
-        <img id="lightboxImage" src="" alt="Gallery Image">
-    </div>
     <script>
-      <!--const weddingDate=new Date("2026-08-20T00:00:00+05:30"),storageKey="wedding-rsvp-responses",$=s=>document.querySelector(s),responses=()=>JSON.parse(localStorage.getItem(storageKey)||"[]"),saveResponses=i=>localStorage.setItem(storageKey,JSON.stringify(i));function updateCountdown(){const e=Math.max(0,weddingDate-new Date),t=Math.floor(e/1e3),n=Math.floor(t/86400),o=Math.floor(t%86400/3600),r=Math.floor(t%3600/60),s=t%60;$("#days").textContent=String(n).padStart(2,"0"),$("#hours").textContent=String(o).padStart(2,"0"),$("#minutes").textContent=String(r).padStart(2,"0"),$("#seconds").textContent=String(s).padStart(2,"0")}function setGuestCount(e){$("#guestCount").value=Math.min(20,Math.max(0,Number(e)||0))}function escapeHtml(e){return String(e).replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[e]))}function renderHostView(){const e=$("#hostPanel");if(!new URLSearchParams(window.location.search).has("host"))return;e.hidden=false;const t=responses(),n=t.filter(e=>"yes"===e.attending),o=n.reduce((e,t)=>e+Number(t.guestCount||0),0);$("#hostSummary").textContent=t.length+" responses, "+n.length+" attending, "+o+" total guests.",$("#responsesBody").innerHTML=t.length?t.map(e=>"<tr><td>"+escapeHtml(e.guestName)+"</td><td>"+("yes"===e.attending?"Attending":"Not attending")+"</td><td>"+("yes"===e.attending?e.guestCount:0)+"</td><td>"+new Date(e.submittedAt).toLocaleString()+"</td></tr>").join(""):"<tr><td colspan='4'>No RSVP responses yet.</td></tr>"}function setupGallery(){const e=$("#photos"),t=[...e.children],n=$("#galleryDots");n.innerHTML=t.map((e,t)=>"<span class='"+(0===t?"active":"")+"'></span>").join("");const o=o=>e.scrollBy({left:o*(t[0].getBoundingClientRect().width+14),behavior:"smooth"});$("#prevPhoto").addEventListener("click",()=>o(-1)),$("#nextPhoto").addEventListener("click",()=>o(1)),e.addEventListener("scroll",()=>{const o=Math.round(e.scrollLeft/(t[0].getBoundingClientRect().width+14));[...n.children].forEach((e,t)=>e.classList.toggle("active",t===o))},{passive:true})}$("#minusGuest").addEventListener("click",()=>setGuestCount(Number($("#guestCount").value)-1)),$("#plusGuest").addEventListener("click",()=>setGuestCount(Number($("#guestCount").value)+1)),$("#guestCount").addEventListener("input",e=>setGuestCount(e.target.value)),document.querySelectorAll("input[name='attending']").forEach(e=>e.addEventListener("change",()=>{"no"===e.value&&e.checked&&setGuestCount(0),"yes"===e.value&&e.checked&&0===Number($("#guestCount").value)&&setGuestCount(1)})),$("#rsvpForm").addEventListener("submit",e=>{e.preventDefault();const t=new FormData(e.currentTarget),n={guestName:t.get("guestName").trim(),attending:t.get("attending"),guestCount:Number(t.get("guestCount"))||0,submittedAt:new Date().toISOString()};saveResponses([...responses().filter(e=>e.guestName.toLowerCase()!==n.guestName.toLowerCase()),n]),$("#formMessage").textContent="Thank you! Your RSVP has been saved.",e.currentTarget.reset(),setGuestCount(1),renderHostView()}),$("#clearResponses").addEventListener("click",()=>{confirm("Clear all saved RSVP responses on this device?")&&(saveResponses([]),renderHostView())}),setupGallery(),updateCountdown(),setInterval(updateCountdown,1e3),renderHostView();-->
-
 		const weddingDate = new Date("2026-08-20T00:00:00+05:30");
 		const $ = s => document.querySelector(s);
 
@@ -1038,7 +1022,7 @@
 			const attending = document.querySelector("input[name='attending']:checked").value;
 			const guestCount = parseInt(document.getElementById("guestCount").value) || 0;
 			
-			// Validate Name (Handles empty check + Alphabets, spaces, and dots only)
+			// Validate Name
 			const namePattern = /^[A-Za-z\s.]+$/;
 			if (!guestName || !namePattern.test(guestName)) {
 				formMessage.textContent = !guestName 
@@ -1081,7 +1065,6 @@
 				formMessage.textContent = "Thank you! Your RSVP has been saved.";
 				formMessage.style.color = "#ffe582";
 				
-				// Auto-hide after 3 seconds
 				setTimeout(() => {
 					formMessage.textContent = "";
 				}, 1500);
@@ -1097,7 +1080,6 @@
 				formMessage.textContent = "Unable to submit RSVP. Please try again.";
 				formMessage.style.color = "#ff6b6b";
 				
-				// Auto-hide after 3 seconds
 				setTimeout(() => {
 					formMessage.textContent = "";
 				}, 1500);
@@ -1112,7 +1094,7 @@
 		updateCountdown();
 		setInterval(updateCountdown, 1000);
 		
-		// Lightbox - Click images to enlarge
+		// Lightbox Modal
 		const lightbox = document.createElement('div');
 		lightbox.className = 'lightbox';
 		lightbox.id = 'lightbox';
@@ -1133,7 +1115,6 @@
 			document.body.style.overflow = '';
 		};
 
-		// Add click listeners to gallery images
 		document.querySelectorAll('.photos figure img').forEach(img => {
 			img.style.cursor = 'pointer';
 			img.addEventListener('click', function(e) {
@@ -1142,19 +1123,15 @@
 			});
 		});
 
-		// Close on background click
 		document.getElementById('lightbox').addEventListener('click', function(e) {
 			if (e.target === this) {
 				closeLightbox();
 			}
 		});
 
-		// Close with Escape key
 		document.addEventListener('keydown', function(e) {
 			if (e.key === 'Escape') closeLightbox();
 		});
-
     </script>
-
   </body>
 </html>
