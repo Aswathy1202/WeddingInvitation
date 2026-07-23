@@ -102,6 +102,7 @@
 
 	.hero-overlay p {
 		margin: 10px 0 0;
+		ont-family: "Alex Brush", cursive;
 		font-size: clamp(19px, 2.4vw, 28px);
 	}
 
@@ -568,10 +569,7 @@
 	}
 
 	@media (max-width: 520px) {
-		h1 span {
-			display: block;
-		}
-
+		
 		h1 .ampersand {
 			font-size: 0.7em; /* Makes the '&' slightly smaller for a balanced look */
 			margin: 4px 0;
@@ -586,6 +584,8 @@
 
 		h1 {
 			margin-top: 20px;
+			font-size: clamp(38px, 8vw, 64px); /* Slightly scales down font on smaller phones to fit on one line cleanly */
+        	white-space: nowrap; /* Prevents wrapping onto a second line */
 		}
 
 		.countdown div {
