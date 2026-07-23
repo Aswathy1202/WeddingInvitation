@@ -1,0 +1,12 @@
+To add gallery images, put your photos in this assets folder. Recommended names:
+
+gallery-1.jpg
+gallery-2.jpg
+gallery-3.jpg
+gallery-4.jpg
+
+Then replace each <div class="photo-card">...</div> inside <div class="photos" id="photos"> with:
+
+<img src="./assets/gallery-1.jpg" alt="Sarath and Aswathy photo 1">
+
+Change the number for each image.

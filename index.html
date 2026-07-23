@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Wedding Invitation
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+	:root {
+		--navy: #0d335c;
+		--ink: #17345c;
+		--gold: #d6aa25;
+		--paper: #fffdf9;
+		--muted: #687180;
+		--shadow: 0 20px 55px rgba(20, 31, 49, .14);
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+		background: var(--paper);
+		color: #18202b;
+		font-family: Inter, Arial, sans-serif;
+	}
+
+	main {
+		overflow: hidden;
+	}
+
+	.hero {
+		min-height: 100vh;
+		min-height: 100dvh;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	.hero-photo {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		/* Fits image perfectly across screen ratios while keeping subjects centered */
+		background: url("./assets/hero-background.jpg") center center / cover no-repeat;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		padding: clamp(38px, 7vw, 72px) 22px;
+		color: white;
+		text-align: center;
+		text-shadow: 0 3px 18px rgba(0, 0, 0, .24);
+	}
+
+	.date-ribbon {
+		border-radius: 8px;
+		background: rgba(255, 255, 255, .9);
+		color: #7c838d;
+		padding: 10px 54px;
+		font-size: clamp(18px, 2vw, 26px);
+		letter-spacing: 2px;
+		box-shadow: var(--shadow);
+	}
+
+	h1, h2 {
+		font-family: "Alex Brush", cursive;
+		font-weight: 400;
+		margin: 0;
+	}
+
+	h1 {
+		margin-top: 26px;
+		font-size: clamp(56px, 10vw, 104px);
+		line-height: .98;
+		text-transform: capitalize;
+	}
+
+	.moustache {
+		width: 120px;
+		margin: 12px auto 8px;
+		color: white;
+		font-family: Georgia, serif;
+		font-size: 68px;
+		line-height: .35;
+		border-bottom: 2px solid var(--gold);
+	}
+
+	.hero-overlay p {
+		margin: 10px 0 0;
+		font-size: clamp(19px, 2.4vw, 28px);
+	}
+
+	.countdown-band,
+	.rsvp {
+		position: relative;
+		background: radial-gradient(circle at 24% 30%, rgba(70, 130, 180, .22), transparent 34%),
+			linear-gradient(135deg, #092b50, #123f6d 46%, #082844);
+		color: white;
+		text-align: center;
+	}
+
+	.countdown-band {
+		padding: 34px 22px 44px;
+	}
+
+	.countdown-band h2,
+	.rsvp h2,
+	.details h2,
+	.location h2,
+	.gallery h2,
+	.host-panel h2 {
+		color: var(--ink);
+		font-size: clamp(34px, 4vw, 46px);
+		text-align: center;
+	}
+
+	.countdown-band h2,
+	.rsvp h2 {
+		color: #f4c432;
+	}
+
+	.countdown {
+		max-width: 820px;
+		margin: 26px auto 0;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.countdown div {
+		min-width: 0;
+		padding: 4px clamp(12px, 4vw, 42px);
+		border-right: 1px solid rgba(214, 170, 37, .8);
+	}
+
+	.countdown div:last-child {
+		border-right: 0;
+	}
+
+	.countdown strong {
+		display: block;
+		font-family: Georgia, serif;
+		font-size: clamp(42px, 8vw, 70px);
+		font-weight: 400;
+		line-height: 1;
+	}
+
+	.countdown span {
+		display: block;
+		margin-top: 12px;
+		font-size: 15px;
+		text-transform: uppercase;
+	}
+
+	.floral {
+		position: absolute;
+		width: min(190px, 28vw);
+		aspect-ratio: 1;
+		bottom: 10px;
+		opacity: .16;
+		border: 2px solid white;
+		border-radius: 50%;
+		pointer-events: none;
+	}
+
+	.floral-left {
+		left: 18px;
+	}
+
+	.floral-right {
+		right: 18px;
+	}
+
+	.details {
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 52px 22px 56px;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 30px;
+		text-align: center;
+	}
+
+	.details article:first-child {
+		border-right: 1px solid #b7bdc7;
+	}
+
+	.line-icon {
+		color: var(--gold);
+		font-size: 58px;
+		line-height: 1;
+	}
+
+	.details p {
+		margin: 14px 0 0;
+		line-height: 1.5;
+		font-size: 18px;
+	}
+
+	.location,
+	.gallery {
+		border-top: 1px solid #e6e1db;
+		padding: 40px 20px 50px;
+		text-align: center;
+	}
+
+	.map-preview {
+		width: min(200px, 80vw);
+		height: 138px;
+		display: grid;
+		place-items: center;
+		margin: 24px auto;
+		border-radius: 8px;
+		overflow: hidden;
+		background: linear-gradient(90deg, rgba(255, 255, 255, .7) 0 12%, transparent 12% 20%, rgba(255, 255, 255, .45) 20% 22%, transparent 22% 44%, rgba(255, 255, 255, .52) 44% 47%, transparent 47%),
+			linear-gradient(0deg, transparent 0 45%, rgba(225, 185, 68, .65) 45% 48%, transparent 48%),
+			linear-gradient(90deg, transparent 0 33%, rgba(90, 135, 175, .65) 33% 36%, transparent 36%),
+			repeating-linear-gradient(32deg, #dfe8ee 0 8px, #f9f4ea 8px 18px);
+		box-shadow: var(--shadow);
+		position: relative;
+		max-width: 300px;
+	}
+
+	.pin {
+		width: 42px;
+		height: 42px;
+		border-radius: 50% 50% 50% 0;
+		background: var(--ink);
+		transform: rotate(-45deg);
+		position: relative;
+		box-shadow: 0 9px 20px rgba(13, 51, 92, .28);
+	}
+
+	.pin:after {
+		content: "";
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;
+		background: white;
+		position: absolute;
+		inset: 13px;
+	}
+
+	.gallery-track {
+		display: grid;
+		grid-template-columns: 44px minmax(0, 1fr) 44px;
+		gap: 14px;
+		align-items: center;
+		max-width: 1180px;
+		margin: 24px auto 0;
+	}
+
+	.photos {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: calc((100% - 42px) / 4);
+		gap: 14px;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+	}
+
+	.photos::-webkit-scrollbar {
+		display: none;
+	}
+
+	.photos figure {
+		margin: 0;
+		aspect-ratio: 1; /* Changed from 1.55 to 1 (Square) */
+		border-radius: 8px;
+		overflow: hidden;
+		scroll-snap-align: start;
+		box-shadow: 0 8px 22px rgba(11, 31, 56, .14);
+		background: #fffdf9;
+	}
+
+	.photo-card {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #f4f6f8;
+	}
+	.gallery-button {
+		width: 44px;
+		height: 44px;
+		border: 0;
+		border-radius: 50%;
+		background: var(--ink);
+		color: white;
+		font-size: 34px;
+		line-height: 0;
+		cursor: pointer;
+	}
+
+	.dots {
+		margin-top: 20px;
+	}
+
+	.dots span {
+		width: 12px;
+		height: 12px;
+		display: inline-block;
+		margin: 0 7px;
+		border-radius: 50%;
+		background: #c5c8cc;
+	}
+
+	.dots span.active {
+		background: var(--ink);
+	}
+
+	.rsvp {
+		padding: 34px 22px 46px;
+	}
+
+	.rsvp form {
+		width: min(560px, 100%);
+		margin: 18px auto 0;
+	}
+
+	.field {
+		display: grid;
+		gap: 8px;
+		text-align: left;
+		margin-bottom: 18px;
+	}
+
+	.field span,
+	.guest-count span,
+	fieldset legend {
+		font-size: 18px;
+		font-weight: 500;
+	}
+
+	input[type=text],
+	input[type=number] {
+		width: 100%;
+		border: 1px solid rgba(255, 255, 255, .8);
+		border-radius: 4px;
+		background: rgba(255, 255, 255, .08);
+		color: white;
+		padding: 13px 14px;
+		font: inherit;
+	}
+
+	input::placeholder {
+		color: rgba(255, 255, 255, .65);
+	}
+
+	fieldset {
+		border: 0;
+		padding: 0;
+		margin: 0 0 20px;
+		display: flex;
+		justify-content: center;
+		gap: 34px;
+		flex-wrap: wrap;
+	}
+
+	fieldset legend {
+		width: 100%;
+		margin-bottom: 12px;
+	}
+
+	fieldset label {
+		display: inline-flex;
+		gap: 8px;
+		align-items: center;
+	}
+
+	.guest-count {
+		display: grid;
+		gap: 14px;
+	}
+
+	.guest-count div {
+		display: flex;
+		justify-content: center;
+		gap: 28px;
+	}
+
+	.guest-count button,
+	.guest-count input {
+		width: 68px;
+		height: 48px;
+		text-align: center;
+	}
+
+	.guest-count button {
+		border: 2px solid #f4c432;
+		border-radius: 4px;
+		background: transparent;
+		color: #f4c432;
+		font-size: 26px;
+		cursor: pointer;
+	}
+
+	.guest-count input {
+		padding: 0;
+		line-height: 48px;
+		box-sizing: border-box;
+		-moz-appearance: textfield;
+		appearance: textfield;
+	}
+
+	/* Remove up/down arrows in number input */
+	.guest-count input::-webkit-outer-spin-button,
+	.guest-count input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	.submit-button {
+		width: min(320px, 100%);
+		margin-top: 24px;
+		border: 0;
+		border-radius: 5px;
+		background: linear-gradient(90deg, #f8d94c, #d6aa25);
+		color: #17345c;
+		text-transform: uppercase;
+		font-weight: 700;
+		padding: 15px 22px;
+		cursor: pointer;
+	}
+
+	.form-message {
+		min-height: 24px;
+		margin: 14px 0 0;
+		color: #ffe582;
+	}
+
+	.host-panel {
+		max-width: 980px;
+		margin: 44px auto;
+		padding: 0 20px;
+	}
+
+	.host-header {
+		display: flex;
+		gap: 18px;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 16px;
+	}
+
+	.host-header p {
+		margin: 6px 0 0;
+		color: var(--muted);
+	}
+
+	.host-header button {
+		border: 1px solid #c8ced8;
+		background: white;
+		border-radius: 4px;
+		padding: 10px 18px;
+		cursor: pointer;
+	}
+
+	.table-wrap {
+		overflow-x: auto;
+		border: 1px solid #e1e5ec;
+		border-radius: 8px;
+	}
+
+	table {
+		width: 100%;
+		min-width: 640px;
+		border-collapse: collapse;
+		background: white;
+	}
+
+	th,
+	td {
+		padding: 14px 16px;
+		border-bottom: 1px solid #edf0f4;
+		text-align: left;
+	}
+
+	th {
+		color: var(--ink);
+	}
+
+	footer {
+		padding: 28px 20px 32px;
+		text-align: center;
+	}
+
+	footer p {
+		margin: 0 0 10px;
+		color: var(--gold);
+		font-weight: 600;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		display:inline-block;
+	}
+
+	footer small {
+		color: var(--muted);
+	}
+
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+	}
+
+	@media (max-width: 820px) {
+		.hero {
+			min-height: 650px;
+		}
+
+		.date-ribbon {
+			padding-inline: 34px;
+		}
+
+		.countdown {
+			grid-template-columns: repeat(2, 1fr);
+			row-gap: 28px;
+		}
+
+		.countdown div:nth-child(2) {
+			border-right: 0;
+		}
+
+		.details {
+			grid-template-columns: 1fr;
+			padding-top: 42px;
+		}
+
+		.details article:first-child {
+			border-right: 0;
+			border-bottom: 1px solid #d7dbe2;
+			padding-bottom: 30px;
+		}
+
+		.photos {
+			grid-auto-columns: 78%;
+		}
+
+		.gallery-track {
+			grid-template-columns: 36px minmax(0, 1fr) 36px;
+			gap: 8px;
+		}
+
+		.gallery-button {
+			width: 36px;
+			height: 36px;
+			font-size: 28px;
+		}
+	}
+
+	@media (max-width: 520px) {
+		h1 span {
+			display: block;
+		}
+
+		h1 .ampersand {
+			font-size: 0.7em; /* Makes the '&' slightly smaller for a balanced look */
+			margin: 4px 0;
+		}
+			.hero {
+			min-height: 590px;
+		}
+
+		.hero-overlay {
+			padding-top: 34px;
+		}
+
+		h1 {
+			margin-top: 20px;
+		}
+
+		.countdown div {
+			padding: 0 12px;
+		}
+
+		fieldset {
+			justify-content: flex-start;
+			text-align: left;
+		}
+
+		.guest-count div {
+			gap: 18px;
+		}
+
+		.host-header {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+	}
+	.photos figure img{
+		width:100%;
+		height:100%;
+		object-fit:contain;
+		display:block;
+	}
+	#guestCount {
+		text-align: center;
+	}
+	
+	/* Lightbox Modal */
+	.lightbox {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.85);
+		z-index: 9999;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		animation: fadeIn 0.3s ease;
+	}
+
+	.lightbox.active {
+		display: flex;
+	}
+
+	.lightbox img {
+		max-width: 90%;
+		max-height: 90%;
+		object-fit: contain;
+		border-radius: 8px;
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+		animation: zoomIn 0.3s ease;
+	}
+
+	.lightbox .close-btn {
+		position: absolute;
+		top: 30px;
+		right: 40px;
+		color: white;
+		font-size: 40px;
+		font-weight: 300;
+		cursor: pointer;
+		transition: transform 0.3s;
+		z-index: 10000;
+	}
+
+	.lightbox .close-btn:hover {
+		transform: rotate(90deg);
+	}
+
+	@keyframes fadeIn {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+
+	@keyframes zoomIn {
+		from { transform: scale(0.8); opacity: 0; }
+		to { transform: scale(1); opacity: 1; }
+	}
+
+
+	</style>
+  </head>
+  <body>
+    <main>
+      <section class="hero" aria-label="Wedding invitation">
+        <div class="hero-photo" role="img" aria-label="Couple photo placeholder">
+        </div>
+        <div class="hero-overlay">
+          <div class="date-ribbon">
+            20.08.2026
+          </div>
+          <h1>
+              <span>Aswathy</span>
+			  <span class="ampersand">&amp;</span>
+			  <span>Sarath</span>
+          </h1>
+          <p>
+            We're Getting Married
+          </p>
+        </div>
+      </section>
+      <section class="countdown-band">
+        <!--<div class="floral floral-left" aria-hidden="true">
+        </div>
+        <div class="floral floral-right" aria-hidden="true">
+        </div>-->
+        <h2>
+          Countdown to Our Big Day
+        </h2>
+        <div class="countdown" aria-live="polite">
+          <div>
+            <strong id="days">
+              00
+            </strong>
+            <span>
+              Days
+            </span>
+          </div>
+          <div>
+            <strong id="hours">
+              00
+            </strong>
+            <span>
+              Hours
+            </span>
+          </div>
+          <div>
+            <strong id="minutes">
+              00
+            </strong>
+            <span>
+              Minutes
+            </span>
+          </div>
+          <div>
+            <strong id="seconds">
+              00
+            </strong>
+            <span>
+              Seconds
+            </span>
+          </div>
+        </div>
+      </section>
+      <section class="details">
+        <article>
+          <div class="line-icon">
+            ◷
+          </div>
+          <h2>
+            When
+          </h2>
+          <p>
+            August 20, 2026
+            <br>
+            10:00 am - 11:00 am
+          </p>
+        </article>
+        <article>
+          <div class="line-icon">
+            ⌖
+          </div>
+          <h2>
+            Where
+          </h2>
+          <p>
+            Kumaramangalam Auditorium,
+            <br>
+            North paravur,
+            <br>
+            Ernakulam
+          </p>
+        </article>
+      </section>
+      <section class="location">
+        <h2>
+          Our Location
+        </h2>
+        <a class="map-preview" href="https://www.google.com/maps/place/Kumaramangalam+Auditorium/@10.1572816,76.2343018,17z/data=!3m1!4b1!4m6!3m5!1s0x3b081a900118aa8b:0xee6a9fe8635b5256!8m2!3d10.1572816!4d76.2368767!16s%2Fg%2F11b776hyqh?authuser=0&entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">
+          <span class="pin" aria-hidden="true">
+          </span>
+          <span class="sr-only">
+            Open location in Google Maps
+          </span>
+        </a>
+      </section>
+      <section class="gallery" aria-label="Photo gallery">
+        <h2>
+          Our Gallery
+        </h2>
+        <div class="gallery-track">
+          <button class="gallery-button" id="prevPhoto" aria-label="Previous photo">
+            ‹
+          </button>
+          <div class="photos" id="photos">
+            <figure>
+              <div class="photo-card">
+                <img src="./assets/img1.jpg" alt="Photo 1">
+              </div>
+            </figure>
+            <figure>
+              <div class="photo-card">
+				<img src="./assets/img2.jpg" alt="Photo 2">
+              </div>
+            </figure>
+            <figure>
+              <div class="photo-card">
+                <img src="./assets/img3.jpg" alt="Photo 3">
+              </div>
+            </figure>
+            <figure>
+              <div class="photo-card">
+                <img src="./assets/img4.jpg" alt="Photo 4">
+              </div>
+            </figure>
+			<figure>
+              <div class="photo-card">
+                <img src="./assets/img5.jpg" alt="Photo 4">
+              </div>
+            </figure>
+          </div>
+          <button class="gallery-button" id="nextPhoto" aria-label="Next photo">
+            ›
+          </button>
+        </div>
+        <div class="dots" id="galleryDots" aria-hidden="true">
+        </div>
+      </section>
+      <section class="rsvp" id="rsvp">
+        <!--<div class="floral floral-left" aria-hidden="true">
+        </div>
+        <div class="floral floral-right" aria-hidden="true">
+        </div> -->
+        <h2>
+          Join with us...
+        </h2>
+        <form id="rsvpForm">
+          <label class="field">
+            <span>
+              Your Name
+            </span>
+            <input name="guestName" type="text" placeholder="Enter your name" pattern="[A-Za-z\s.]+" title="Please enter valid name"required>
+          </label>
+          <fieldset>
+            <legend>
+              Will you attend?
+            </legend>
+            <label>
+              <input type="radio" name="attending" value="yes" checked>
+              Yes, I'll be there
+            </label>
+            <label>
+              <input type="radio" name="attending" value="no">
+              Sorry, can't make it
+            </label>
+          </fieldset>
+          <label class="guest-count">
+            <span>
+              No of Guests Attending
+            </span>
+            <div>
+              <button type="button" id="minusGuest" aria-label="Decrease guests">
+                −
+              </button>
+              <input id="guestCount" name="guestCount" type="number" value="0" min="0" max="20" inputmode="numeric">
+              <button type="button" id="plusGuest" aria-label="Increase guests">
+                +
+              </button>
+            </div>
+          </label>
+          <button class="submit-button" type="submit">
+            Submit
+          </button>
+          <p class="form-message" id="formMessage" role="status">
+          </p>
+        </form>
+      </section>
+      <section class="host-panel" id="hostPanel" hidden>
+        <div class="host-header">
+          <div>
+            <h2>
+              Host View
+            </h2>
+            <p id="hostSummary">
+              No responses yet.
+            </p>
+          </div>
+          <button id="clearResponses" type="button">
+            Clear
+          </button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Status
+                </th>
+                <th>
+                  Guests
+                </th>
+                <th>
+                  Submitted
+                </th>
+              </tr>
+            </thead>
+            <tbody id="responsesBody">
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        ♥ Can't wait to celebrate with you! ♥
+      </p>
+         
+    </footer>
+	<!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImage" src="" alt="Gallery Image">
+    </div>
+    <script>
+      <!--const weddingDate=new Date("2026-08-20T00:00:00+05:30"),storageKey="wedding-rsvp-responses",$=s=>document.querySelector(s),responses=()=>JSON.parse(localStorage.getItem(storageKey)||"[]"),saveResponses=i=>localStorage.setItem(storageKey,JSON.stringify(i));function updateCountdown(){const e=Math.max(0,weddingDate-new Date),t=Math.floor(e/1e3),n=Math.floor(t/86400),o=Math.floor(t%86400/3600),r=Math.floor(t%3600/60),s=t%60;$("#days").textContent=String(n).padStart(2,"0"),$("#hours").textContent=String(o).padStart(2,"0"),$("#minutes").textContent=String(r).padStart(2,"0"),$("#seconds").textContent=String(s).padStart(2,"0")}function setGuestCount(e){$("#guestCount").value=Math.min(20,Math.max(0,Number(e)||0))}function escapeHtml(e){return String(e).replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[e]))}function renderHostView(){const e=$("#hostPanel");if(!new URLSearchParams(window.location.search).has("host"))return;e.hidden=false;const t=responses(),n=t.filter(e=>"yes"===e.attending),o=n.reduce((e,t)=>e+Number(t.guestCount||0),0);$("#hostSummary").textContent=t.length+" responses, "+n.length+" attending, "+o+" total guests.",$("#responsesBody").innerHTML=t.length?t.map(e=>"<tr><td>"+escapeHtml(e.guestName)+"</td><td>"+("yes"===e.attending?"Attending":"Not attending")+"</td><td>"+("yes"===e.attending?e.guestCount:0)+"</td><td>"+new Date(e.submittedAt).toLocaleString()+"</td></tr>").join(""):"<tr><td colspan='4'>No RSVP responses yet.</td></tr>"}function setupGallery(){const e=$("#photos"),t=[...e.children],n=$("#galleryDots");n.innerHTML=t.map((e,t)=>"<span class='"+(0===t?"active":"")+"'></span>").join("");const o=o=>e.scrollBy({left:o*(t[0].getBoundingClientRect().width+14),behavior:"smooth"});$("#prevPhoto").addEventListener("click",()=>o(-1)),$("#nextPhoto").addEventListener("click",()=>o(1)),e.addEventListener("scroll",()=>{const o=Math.round(e.scrollLeft/(t[0].getBoundingClientRect().width+14));[...n.children].forEach((e,t)=>e.classList.toggle("active",t===o))},{passive:true})}$("#minusGuest").addEventListener("click",()=>setGuestCount(Number($("#guestCount").value)-1)),$("#plusGuest").addEventListener("click",()=>setGuestCount(Number($("#guestCount").value)+1)),$("#guestCount").addEventListener("input",e=>setGuestCount(e.target.value)),document.querySelectorAll("input[name='attending']").forEach(e=>e.addEventListener("change",()=>{"no"===e.value&&e.checked&&setGuestCount(0),"yes"===e.value&&e.checked&&0===Number($("#guestCount").value)&&setGuestCount(1)})),$("#rsvpForm").addEventListener("submit",e=>{e.preventDefault();const t=new FormData(e.currentTarget),n={guestName:t.get("guestName").trim(),attending:t.get("attending"),guestCount:Number(t.get("guestCount"))||0,submittedAt:new Date().toISOString()};saveResponses([...responses().filter(e=>e.guestName.toLowerCase()!==n.guestName.toLowerCase()),n]),$("#formMessage").textContent="Thank you! Your RSVP has been saved.",e.currentTarget.reset(),setGuestCount(1),renderHostView()}),$("#clearResponses").addEventListener("click",()=>{confirm("Clear all saved RSVP responses on this device?")&&(saveResponses([]),renderHostView())}),setupGallery(),updateCountdown(),setInterval(updateCountdown,1e3),renderHostView();-->
+
+		const weddingDate = new Date("2026-08-20T00:00:00+05:30");
+		const $ = s => document.querySelector(s);
+
+		// Countdown
+		function updateCountdown() {
+			const diff = Math.max(0, weddingDate - new Date());
+			const totalSeconds = Math.floor(diff / 1000);
+			const days = Math.floor(totalSeconds / 86400);
+			const hours = Math.floor((totalSeconds % 86400) / 3600);
+			const minutes = Math.floor((totalSeconds % 3600) / 60);
+			const seconds = totalSeconds % 60;
+
+			$("#days").textContent = String(days).padStart(2, "0");
+			$("#hours").textContent = String(hours).padStart(2, "0");
+			$("#minutes").textContent = String(minutes).padStart(2, "0");
+			$("#seconds").textContent = String(seconds).padStart(2, "0");
+		}
+
+		// Guest Count
+		function setGuestCount(value) {
+			$("#guestCount").value = Math.min(20, Math.max(0, Number(value) || 0));
+		}
+
+		$("#minusGuest").addEventListener("click", () => {
+			setGuestCount(Number($("#guestCount").value) - 1);
+		});
+
+		$("#plusGuest").addEventListener("click", () => {
+			setGuestCount(Number($("#guestCount").value) + 1);
+		});
+
+		$("#guestCount").addEventListener("input", e => {
+			setGuestCount(e.target.value);
+		});
+
+		document.querySelectorAll("input[name='attending']").forEach(radio => {
+			radio.addEventListener("change", () => {
+				const minusBtn = $("#minusGuest");
+				const plusBtn = $("#plusGuest");
+				const guestInput = $("#guestCount");
+
+				if (radio.checked && radio.value === "no") {
+					setGuestCount(0);
+					guestInput.disabled = true;
+					minusBtn.disabled = true;
+					plusBtn.disabled = true;
+				} else if (radio.checked && radio.value === "yes") {
+					guestInput.disabled = false;
+					minusBtn.disabled = false;
+					plusBtn.disabled = false;
+					if (Number(guestInput.value) === 0) {
+						setGuestCount(1);
+					}
+				}
+			});
+		});
+
+		// Gallery
+		function setupGallery() {
+			const photos = $("#photos");
+			const items = [...photos.children];
+			const dots = $("#galleryDots");
+
+			dots.innerHTML = items.map((_, i) => 
+				`<span class="${i === 0 ? 'active' : ''}"></span>`
+			).join("");
+
+			function move(dir) {
+				photos.scrollBy({
+					left: dir * (items[0].getBoundingClientRect().width + 14),
+					behavior: "smooth"
+				});
+			}
+
+			$("#prevPhoto").addEventListener("click", () => move(-1));
+			$("#nextPhoto").addEventListener("click", () => move(1));
+
+			photos.addEventListener("scroll", () => {
+				const index = Math.round(
+					photos.scrollLeft / (items[0].getBoundingClientRect().width + 14)
+				);
+				[...dots.children].forEach((dot, i) => {
+					dot.classList.toggle("active", i === index);
+				});
+			}, { passive: true });
+		}
+
+		// RSVP Submit to Google Sheets
+		$("#rsvpForm").addEventListener("submit", async function(e) {
+			e.preventDefault();
+
+			const formMessage = $("#formMessage");
+			const submitButton = this.querySelector(".submit-button");
+			const originalText = submitButton.textContent;
+
+			// Disable button
+			submitButton.disabled = true;
+			submitButton.textContent = "Submitting...";
+			formMessage.textContent = "";
+
+			// Get form data
+			const guestName = document.querySelector("[name='guestName']").value.trim();
+			const attending = document.querySelector("input[name='attending']:checked").value;
+			const guestCount = parseInt(document.getElementById("guestCount").value) || 0;
+			
+			// Validate Name (Handles empty check + Alphabets, spaces, and dots only)
+			const namePattern = /^[A-Za-z\s.]+$/;
+			if (!guestName || !namePattern.test(guestName)) {
+				formMessage.textContent = !guestName 
+					? "Please enter your name." 
+					: "Name can only contain letters, spaces, and dots.";
+				formMessage.style.color = "#ff6b6b";
+				submitButton.disabled = false;
+				submitButton.textContent = originalText;
+				return;
+			}
+			
+			// Validate Guest Count when attending is "yes"
+			if (attending === "yes" && guestCount <= 0) {
+				formMessage.textContent = "Please enter at least 1 guest if attending.";
+				formMessage.style.color = "#ff6b6b";
+				submitButton.disabled = false;
+				submitButton.textContent = originalText;
+				return;
+			}
+
+			const formData = {
+				guestName: guestName,
+				attending: attending,
+				guestCount: guestCount
+			};
+
+			try {
+				const response = await fetch(
+					"https://script.google.com/macros/s/AKfycby9_7KhEECuMXTggswMZ6DYuPOdhtPRCYQgFhwwI5n64pmi3LGG5Cx7KaiOK3xIC5o/exec",
+					{
+						method: "POST",
+						mode: "no-cors",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(formData)
+					}
+				);
+
+				formMessage.textContent = "Thank you! Your RSVP has been saved.";
+				formMessage.style.color = "#ffe582";
+				
+				// Auto-hide after 3 seconds
+				setTimeout(() => {
+					formMessage.textContent = "";
+				}, 1500);
+
+				this.reset();
+				setGuestCount(0);
+				$("#guestCount").disabled = false;
+				$("#minusGuest").disabled = false;
+				$("#plusGuest").disabled = false;
+
+			} catch (error) {
+				console.error("RSVP Error:", error);
+				formMessage.textContent = "Unable to submit RSVP. Please try again.";
+				formMessage.style.color = "#ff6b6b";
+				
+				// Auto-hide after 3 seconds
+				setTimeout(() => {
+					formMessage.textContent = "";
+				}, 1500);
+			} finally {
+				submitButton.disabled = false;
+				submitButton.textContent = originalText;
+			}
+		});
+
+		// Initialize
+		setupGallery();
+		updateCountdown();
+		setInterval(updateCountdown, 1000);
+		
+		// Lightbox - Click images to enlarge
+		const lightbox = document.createElement('div');
+		lightbox.className = 'lightbox';
+		lightbox.id = 'lightbox';
+		lightbox.innerHTML = `
+			<span class="close-btn" onclick="closeLightbox()">&times;</span>
+			<img id="lightboxImage" src="" alt="Gallery Image">
+		`;
+		document.body.appendChild(lightbox);
+
+		window.openLightbox = function(src) {
+			document.getElementById('lightboxImage').src = src;
+			document.getElementById('lightbox').classList.add('active');
+			document.body.style.overflow = 'hidden';
+		};
+
+		window.closeLightbox = function() {
+			document.getElementById('lightbox').classList.remove('active');
+			document.body.style.overflow = '';
+		};
+
+		// Add click listeners to gallery images
+		document.querySelectorAll('.photos figure img').forEach(img => {
+			img.style.cursor = 'pointer';
+			img.addEventListener('click', function(e) {
+				e.stopPropagation();
+				openLightbox(this.src);
+			});
+		});
+
+		// Close on background click
+		document.getElementById('lightbox').addEventListener('click', function(e) {
+			if (e.target === this) {
+				closeLightbox();
+			}
+		});
+
+		// Close with Escape key
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape') closeLightbox();
+		});
+
+    </script>
+
+  </body>
+</html>
